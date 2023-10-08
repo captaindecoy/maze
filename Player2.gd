@@ -17,7 +17,7 @@ func get_input():
 	return input
 
 func _physics_process(delta):
-	var rs_look = Vector2(0,0)
+	var rs_look : Vector2 = Vector2(0,0)
 	var deadzone = 0.3
 	rs_look.y = Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)
 	rs_look.x = Input.get_joy_axis(0, JOY_AXIS_RIGHT_X)

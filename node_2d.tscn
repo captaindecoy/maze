@@ -249,7 +249,7 @@ position = Vector2(10, -2)
 shape = SubResource("RectangleShape2D_i68bs")
 
 [node name="Player2" type="CharacterBody2D" parent="."]
-position = Vector2(-93, 51)
+position = Vector2(-108, -45)
 script = ExtResource("3_wa2xu")
 speed = 120
 friction = 0.2
