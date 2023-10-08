@@ -247,3 +247,20 @@ texture = ExtResource("4_4inkl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/NewWall13"]
 position = Vector2(10, -2)
 shape = SubResource("RectangleShape2D_i68bs")
+
+[node name="Player2" type="CharacterBody2D" parent="."]
+position = Vector2(-93, 51)
+script = ExtResource("3_wa2xu")
+speed = 120
+friction = 0.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2"]
+position = Vector2(157, 102)
+shape = SubResource("RectangleShape2D_uo110")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player2"]
+position = Vector2(157, 102)
+sprite_frames = SubResource("SpriteFrames_fpwnl")
+
+[node name="Camera2D" type="Camera2D" parent="Player2"]
+position = Vector2(157, 108)
