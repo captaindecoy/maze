@@ -17,8 +17,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_uo110"]
-size = Vector2(12, 16)
+[sub_resource type="CircleShape2D" id="CircleShape2D_qp8l3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fpwnl"]
 animations = [{
@@ -48,27 +47,25 @@ position = Vector2(-32, 141)
 sprite_frames = SubResource("SpriteFrames_7dxvu")
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(-137, -74)
+position = Vector2(40, 40)
 script = ExtResource("3_wa2xu")
 speed = 120
 friction = 0.2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(157, 102)
-shape = SubResource("RectangleShape2D_uo110")
+scale = Vector2(1.56, 1.56)
+shape = SubResource("CircleShape2D_qp8l3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
-position = Vector2(157, 102)
 sprite_frames = SubResource("SpriteFrames_fpwnl")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(157, 108)
 
 [node name="Walls" type="Node" parent="."]
 
 [node name="NewWall5" type="StaticBody2D" parent="Walls"]
-position = Vector2(205, 165)
-scale = Vector2(0.440001, 7.4)
+position = Vector2(206, 167)
+scale = Vector2(0.440001, 8.56)
 metadata/_edit_group_ = true
 
 [node name="WhitePixelpng" type="Sprite2D" parent="Walls/NewWall5"]
@@ -109,8 +106,8 @@ position = Vector2(10, -2)
 shape = SubResource("RectangleShape2D_i68bs")
 
 [node name="NewWall2" type="StaticBody2D" parent="Walls"]
-position = Vector2(98, 218)
-scale = Vector2(10, 1)
+position = Vector2(98, 225)
+scale = Vector2(10, 0.72)
 metadata/_edit_group_ = true
 
 [node name="WhitePixelpng" type="Sprite2D" parent="Walls/NewWall2"]
@@ -151,8 +148,8 @@ position = Vector2(10, -2)
 shape = SubResource("RectangleShape2D_i68bs")
 
 [node name="NewWall7" type="StaticBody2D" parent="Walls"]
-position = Vector2(210, 264)
-scale = Vector2(13.0539, -1.29342)
+position = Vector2(210, 273)
+scale = Vector2(13.0539, -0.733422)
 metadata/_edit_group_ = true
 
 [node name="WhitePixelpng" type="Sprite2D" parent="Walls/NewWall7"]
@@ -247,20 +244,3 @@ texture = ExtResource("4_4inkl")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/NewWall13"]
 position = Vector2(10, -2)
 shape = SubResource("RectangleShape2D_i68bs")
-
-[node name="Player2" type="CharacterBody2D" parent="."]
-position = Vector2(-108, -45)
-script = ExtResource("3_wa2xu")
-speed = 120
-friction = 0.2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player2"]
-position = Vector2(157, 102)
-shape = SubResource("RectangleShape2D_uo110")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player2"]
-position = Vector2(157, 102)
-sprite_frames = SubResource("SpriteFrames_fpwnl")
-
-[node name="Camera2D" type="Camera2D" parent="Player2"]
-position = Vector2(157, 108)
