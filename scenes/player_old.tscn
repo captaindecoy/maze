@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyjyobp3r7fuu"]
+
+[ext_resource type="Script" path="res://scripts/Player.gd" id="1_7te64"]
+[ext_resource type="Texture2D" uid="uid://cmg2xcl0oc4n6" path="res://art/topdown_bw_walkdown1.png" id="2_qasgd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ftssb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7dxvu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qasgd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player_old" type="Area2D"]
+monitoring = false
+script = ExtResource("1_7te64")
+speed = 100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(115, 118)
+shape = SubResource("RectangleShape2D_ftssb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(116, 118)
+sprite_frames = SubResource("SpriteFrames_7dxvu")

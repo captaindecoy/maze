@@ -12,3 +12,9 @@ func _ready():
 func _process(delta):
 	position += transform.x * speed * delta
 	#print(rotation)
+
+
+func _on_body_entered(body):
+	#print("hit!")
+	queue_free()
+	pass # Replace with function body.

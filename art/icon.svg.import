@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0cs55eakg22v"
-path="res://.godot/imported/spr_projectile_0.png-450a078ef33948d7e37dbae5bdfe2804.ctex"
+uid="uid://d2hp45ese84m1"
+path="res://.godot/imported/icon.svg-2ffe2e9772a318535303737ea3c29287.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://spr_projectile_0.png"
-dest_files=["res://.godot/imported/spr_projectile_0.png-450a078ef33948d7e37dbae5bdfe2804.ctex"]
+source_file="res://art/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-2ffe2e9772a318535303737ea3c29287.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
