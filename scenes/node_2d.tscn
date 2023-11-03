@@ -100,3 +100,4 @@ shape = SubResource("RectangleShape2D_i68bs")
 
 [node name="Baddie01" parent="." instance=ExtResource("4_m4qft")]
 position = Vector2(112, 88)
+PlayerNodePath = NodePath("../Player")
