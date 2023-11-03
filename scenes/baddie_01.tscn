@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dihddno88wnsf"]
+
+[ext_resource type="Texture2D" uid="uid://b4cffg1upu2t1" path="res://art/baddie01.png" id="1_0c8ai"]
+[ext_resource type="Script" path="res://scenes/baddie_01.gd" id="1_0yug3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xw74y"]
+
+[node name="Baddie01" type="CharacterBody2D"]
+script = ExtResource("1_0yug3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_0c8ai")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.3, 1.3)
+shape = SubResource("CircleShape2D_xw74y")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)

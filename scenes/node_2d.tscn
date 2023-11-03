@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cl5cf0f1tn2v4"]
+[gd_scene load_steps=8 format=3 uid="uid://cl5cf0f1tn2v4"]
 
 [ext_resource type="Script" path="res://scripts/Player2.gd" id="3_aaetp"]
 [ext_resource type="Texture2D" uid="uid://clrno1lmvx8ri" path="res://art/onslaught_player.png" id="4_giplp"]
+[ext_resource type="PackedScene" uid="uid://dihddno88wnsf" path="res://scenes/baddie_01.tscn" id="4_m4qft"]
 [ext_resource type="Texture2D" uid="uid://dl47dhtsvaa6c" path="res://art/black_pixel.png" id="5_oidtt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qp8l3"]
@@ -23,7 +24,7 @@ size = Vector2(40, 16)
 [node name="Node2D" type="Node2D"]
 
 [node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(40, 40)
+position = Vector2(288, 160)
 collision_layer = 32768
 collision_mask = 32770
 script = ExtResource("3_aaetp")
@@ -41,158 +42,34 @@ sprite_frames = SubResource("SpriteFrames_fpwnl")
 
 [node name="Walls" type="Node" parent="."]
 
-[node name="NewWall5" type="StaticBody2D" parent="Walls"]
-position = Vector2(206, 167)
-scale = Vector2(0.440001, 8.56)
-collision_layer = 3
-metadata/_edit_group_ = true
-
-[node name="WhitePixelpng" type="Sprite2D" parent="Walls/NewWall5"]
-position = Vector2(10, -2)
-scale = Vector2(40, 16)
-texture = ExtResource("5_oidtt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/NewWall5"]
-position = Vector2(10, -2)
-shape = SubResource("RectangleShape2D_i68bs")
-
-[node name="NewWall4" type="StaticBody2D" parent="Walls"]
-position = Vector2(444, 218)
-scale = Vector2(1, 10)
-collision_layer = 3
-metadata/_edit_group_ = true
-
-[node name="WhitePixelpng" type="Sprite2D" parent="Walls/NewWall4"]
-position = Vector2(10, -2)
-scale = Vector2(40, 16)
-texture = ExtResource("5_oidtt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/NewWall4"]
-position = Vector2(10, -2)
-shape = SubResource("RectangleShape2D_i68bs")
-
 [node name="NewWall3" type="StaticBody2D" parent="Walls"]
-position = Vector2(131, 326)
-scale = Vector2(15.9443, -1.11999)
+position = Vector2(296, 304)
+scale = Vector2(15.944, 1)
 collision_layer = 3
 metadata/_edit_group_ = true
 
 [node name="WhitePixelpng" type="Sprite2D" parent="Walls/NewWall3"]
-position = Vector2(10, -2)
 scale = Vector2(40, 16)
 texture = ExtResource("5_oidtt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/NewWall3"]
-position = Vector2(10, -2)
-shape = SubResource("RectangleShape2D_i68bs")
-
-[node name="NewWall2" type="StaticBody2D" parent="Walls"]
-position = Vector2(98, 225)
-scale = Vector2(10, 0.72)
-collision_layer = 3
-metadata/_edit_group_ = true
-
-[node name="WhitePixelpng" type="Sprite2D" parent="Walls/NewWall2"]
-position = Vector2(10, -2)
-scale = Vector2(40, 16)
-texture = ExtResource("5_oidtt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/NewWall2"]
-position = Vector2(10, -2)
 shape = SubResource("RectangleShape2D_i68bs")
 
 [node name="NewWall" type="StaticBody2D" parent="Walls"]
-position = Vector2(-21, 203)
+position = Vector2(-8, 160)
 scale = Vector2(1, 19.4)
 collision_layer = 3
 metadata/_edit_group_ = true
 
 [node name="WhitePixelpng" type="Sprite2D" parent="Walls/NewWall"]
-position = Vector2(10, -2)
 scale = Vector2(40, 16)
 texture = ExtResource("5_oidtt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/NewWall"]
-position = Vector2(10, -2)
-shape = SubResource("RectangleShape2D_i68bs")
-
-[node name="NewWall6" type="StaticBody2D" parent="Walls"]
-position = Vector2(321, 168)
-scale = Vector2(4.01388, -1.29342)
-collision_layer = 3
-metadata/_edit_group_ = true
-
-[node name="WhitePixelpng" type="Sprite2D" parent="Walls/NewWall6"]
-position = Vector2(10, -2)
-scale = Vector2(40, 16)
-texture = ExtResource("5_oidtt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/NewWall6"]
-position = Vector2(10, -2)
-shape = SubResource("RectangleShape2D_i68bs")
-
-[node name="NewWall7" type="StaticBody2D" parent="Walls"]
-position = Vector2(210, 273)
-scale = Vector2(13.0539, -0.733422)
-collision_layer = 3
-metadata/_edit_group_ = true
-
-[node name="WhitePixelpng" type="Sprite2D" parent="Walls/NewWall7"]
-position = Vector2(10, -2)
-scale = Vector2(40, 16)
-texture = ExtResource("5_oidtt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/NewWall7"]
-position = Vector2(10, -2)
-shape = SubResource("RectangleShape2D_i68bs")
-
-[node name="NewWall8" type="StaticBody2D" parent="Walls"]
-position = Vector2(241, 78)
-scale = Vector2(4.01388, -1.29342)
-collision_layer = 3
-metadata/_edit_group_ = true
-
-[node name="WhitePixelpng" type="Sprite2D" parent="Walls/NewWall8"]
-position = Vector2(10, -2)
-scale = Vector2(40, 16)
-texture = ExtResource("5_oidtt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/NewWall8"]
-position = Vector2(10, -2)
-shape = SubResource("RectangleShape2D_i68bs")
-
-[node name="NewWall9" type="StaticBody2D" parent="Walls"]
-position = Vector2(518, 146)
-scale = Vector2(0.440001, 6.36)
-collision_layer = 3
-metadata/_edit_group_ = true
-
-[node name="WhitePixelpng" type="Sprite2D" parent="Walls/NewWall9"]
-position = Vector2(10, -2)
-scale = Vector2(40, 16)
-texture = ExtResource("5_oidtt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/NewWall9"]
-position = Vector2(10, -2)
-shape = SubResource("RectangleShape2D_i68bs")
-
-[node name="NewWall10" type="StaticBody2D" parent="Walls"]
-position = Vector2(355, 108)
-scale = Vector2(0.440001, 3.4)
-collision_layer = 3
-metadata/_edit_group_ = true
-
-[node name="WhitePixelpng" type="Sprite2D" parent="Walls/NewWall10"]
-position = Vector2(10, -2)
-scale = Vector2(40, 16)
-texture = ExtResource("5_oidtt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/NewWall10"]
-position = Vector2(10, -2)
 shape = SubResource("RectangleShape2D_i68bs")
 
 [node name="NewWall11" type="StaticBody2D" parent="Walls"]
-position = Vector2(578, 203)
+position = Vector2(584, 203)
 scale = Vector2(1, 19.4)
 collision_layer = 3
 metadata/_edit_group_ = true
@@ -207,9 +84,10 @@ position = Vector2(10, -2)
 shape = SubResource("RectangleShape2D_i68bs")
 
 [node name="NewWall12" type="StaticBody2D" parent="Walls"]
-position = Vector2(131, 4.00003)
-scale = Vector2(15.9443, -1.11999)
+position = Vector2(136, 16)
+scale = Vector2(16, 1)
 collision_layer = 3
+metadata/_edit_group_ = true
 
 [node name="WhitePixelpng" type="Sprite2D" parent="Walls/NewWall12"]
 position = Vector2(10, -2)
@@ -220,17 +98,5 @@ texture = ExtResource("5_oidtt")
 position = Vector2(10, -2)
 shape = SubResource("RectangleShape2D_i68bs")
 
-[node name="NewWall13" type="StaticBody2D" parent="Walls"]
-position = Vector2(101, 86)
-scale = Vector2(0.440001, 7.4)
-collision_layer = 3
-metadata/_edit_group_ = true
-
-[node name="WhitePixelpng" type="Sprite2D" parent="Walls/NewWall13"]
-position = Vector2(10, -2)
-scale = Vector2(40, 16)
-texture = ExtResource("5_oidtt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/NewWall13"]
-position = Vector2(10, -2)
-shape = SubResource("RectangleShape2D_i68bs")
+[node name="Baddie01" parent="." instance=ExtResource("4_m4qft")]
+position = Vector2(112, 88)
