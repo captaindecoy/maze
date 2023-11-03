@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Area2D
 
 @export var PlayerNodePath : NodePath
 @export var speed: int = 100
@@ -11,3 +11,9 @@ func _physics_process(delta):
 
 func die():
 	queue_free()
+
+
+func _on_body_entered(body):
+	print(body.name)
+	body.die()
+	pass # Replace with function body.

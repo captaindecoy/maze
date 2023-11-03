@@ -51,4 +51,13 @@ func _physics_process(delta):
 		velocity = velocity.lerp(direction.normalized() * speed, acceleration)
 	else:
 		velocity = velocity.lerp(Vector2.ZERO, friction)
+	
 	move_and_slide()
+	
+func die():
+	get_tree().reload_current_scene()
+	#var restart_event = InputEventAction.new()
+	#restart_event.action = "restart"
+	#restart_event.pressed = true
+	#Input.parse_input_event(restart_event)
+	#queue_free()
