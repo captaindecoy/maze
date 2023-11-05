@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cl5cf0f1tn2v4"]
+[gd_scene load_steps=9 format=3 uid="uid://cl5cf0f1tn2v4"]
 
+[ext_resource type="Script" path="res://scenes/node_2d.gd" id="1_vh8ao"]
 [ext_resource type="Script" path="res://scripts/Player2.gd" id="3_aaetp"]
 [ext_resource type="Texture2D" uid="uid://clrno1lmvx8ri" path="res://art/onslaught_player.png" id="4_giplp"]
 [ext_resource type="PackedScene" uid="uid://dihddno88wnsf" path="res://scenes/baddie_01.tscn" id="4_m4qft"]
@@ -22,6 +23,7 @@ animations = [{
 size = Vector2(40, 16)
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_vh8ao")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 position = Vector2(288, 160)
