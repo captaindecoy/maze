@@ -1,13 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://dihddno88wnsf"]
 
 [ext_resource type="Texture2D" uid="uid://b4cffg1upu2t1" path="res://art/baddie01.png" id="1_0c8ai"]
-[ext_resource type="Script" path="res://scenes/baddie_01.gd" id="1_0yug3"]
+[ext_resource type="Script" path="res://scripts/baddie_01.gd" id="1_s3grt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xw74y"]
 
 [node name="Baddie01" type="Area2D"]
+process_mode = 1
 collision_mask = 32769
-script = ExtResource("1_0yug3")
+script = ExtResource("1_s3grt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_0c8ai")
