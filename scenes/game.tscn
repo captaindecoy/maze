@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cl5cf0f1tn2v4"]
+[gd_scene load_steps=9 format=3 uid="uid://cl5cf0f1tn2v4"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_dwrw0"]
-[ext_resource type="Script" path="res://scripts/Player2.gd" id="2_7quyl"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="2_a773c"]
 [ext_resource type="Texture2D" uid="uid://clrno1lmvx8ri" path="res://art/onslaught_player.png" id="3_8kxwv"]
 [ext_resource type="Texture2D" uid="uid://dl47dhtsvaa6c" path="res://art/black_pixel.png" id="4_4s14d"]
-[ext_resource type="PackedScene" uid="uid://dihddno88wnsf" path="res://scenes/baddie_01.tscn" id="5_beq4l"]
-[ext_resource type="Script" path="res://scripts/Spawner.gd" id="6_qgipg"]
+[ext_resource type="Script" path="res://scripts/spawner.gd" id="5_v8ohd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qp8l3"]
 
@@ -31,7 +30,7 @@ script = ExtResource("1_dwrw0")
 position = Vector2(288, 160)
 collision_layer = 32768
 collision_mask = 32770
-script = ExtResource("2_7quyl")
+script = ExtResource("2_a773c")
 speed = 120
 friction = 0.2
 
@@ -46,66 +45,58 @@ sprite_frames = SubResource("SpriteFrames_fpwnl")
 
 [node name="Walls" type="Node" parent="."]
 
-[node name="NewWall3" type="StaticBody2D" parent="Walls"]
-position = Vector2(296, 304)
-scale = Vector2(15.944, 1)
+[node name="NorthWall" type="StaticBody2D" parent="Walls"]
+position = Vector2(288, -24)
+scale = Vector2(16, 2)
 collision_layer = 3
 metadata/_edit_group_ = true
 
-[node name="WhitePixelpng" type="Sprite2D" parent="Walls/NewWall3"]
+[node name="WhitePixelpng" type="Sprite2D" parent="Walls/NorthWall"]
 scale = Vector2(40, 16)
 texture = ExtResource("4_4s14d")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/NewWall3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/NorthWall"]
 shape = SubResource("RectangleShape2D_i68bs")
 
-[node name="NewWall" type="StaticBody2D" parent="Walls"]
-position = Vector2(-8, 160)
-scale = Vector2(1, 19.4)
+[node name="WestWall" type="StaticBody2D" parent="Walls"]
+position = Vector2(-16, 152)
+scale = Vector2(1, 24)
 collision_layer = 3
 metadata/_edit_group_ = true
 
-[node name="WhitePixelpng" type="Sprite2D" parent="Walls/NewWall"]
+[node name="WhitePixelpng" type="Sprite2D" parent="Walls/WestWall"]
 scale = Vector2(40, 16)
 texture = ExtResource("4_4s14d")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/NewWall"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WestWall"]
 shape = SubResource("RectangleShape2D_i68bs")
 
-[node name="NewWall11" type="StaticBody2D" parent="Walls"]
-position = Vector2(584, 203)
-scale = Vector2(1, 19.4)
+[node name="EastWall" type="StaticBody2D" parent="Walls"]
+position = Vector2(592, 152)
+scale = Vector2(1, 24)
 collision_layer = 3
 metadata/_edit_group_ = true
 
-[node name="WhitePixelpng" type="Sprite2D" parent="Walls/NewWall11"]
-position = Vector2(10, -2)
+[node name="WhitePixelpng" type="Sprite2D" parent="Walls/EastWall"]
 scale = Vector2(40, 16)
 texture = ExtResource("4_4s14d")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/NewWall11"]
-position = Vector2(10, -2)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/EastWall"]
 shape = SubResource("RectangleShape2D_i68bs")
 
-[node name="NewWall12" type="StaticBody2D" parent="Walls"]
-position = Vector2(136, 16)
-scale = Vector2(16, 1)
+[node name="SouthWall" type="StaticBody2D" parent="Walls"]
+position = Vector2(288, 328)
+scale = Vector2(16, 2)
 collision_layer = 3
 metadata/_edit_group_ = true
 
-[node name="WhitePixelpng" type="Sprite2D" parent="Walls/NewWall12"]
-position = Vector2(10, -2)
+[node name="WhitePixelpng" type="Sprite2D" parent="Walls/SouthWall"]
 scale = Vector2(40, 16)
 texture = ExtResource("4_4s14d")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/NewWall12"]
-position = Vector2(10, -2)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/SouthWall"]
 shape = SubResource("RectangleShape2D_i68bs")
-
-[node name="Baddie01" parent="." instance=ExtResource("5_beq4l")]
-position = Vector2(112, 88)
-PlayerNodePath = NodePath("../Player")
 
 [node name="Spawner" type="Node2D" parent="."]
 process_mode = 1
-script = ExtResource("6_qgipg")
+script = ExtResource("5_v8ohd")
