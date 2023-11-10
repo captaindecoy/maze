@@ -41,7 +41,9 @@ func _physics_process(delta):
 		rotation = rs_look.angle()
 		if fire_rate_timer == 0:
 			var instance = bullet_scene.instantiate()
-			owner.add_child(instance)
+			if owner:
+				owner.add_child(instance)
+			#add_child(instance)
 			instance.transform = transform
 			fire_rate_timer = fire_rate
 			

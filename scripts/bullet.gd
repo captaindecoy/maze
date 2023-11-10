@@ -21,4 +21,5 @@ func _on_area_entered(area):
 	#print(area.name)
 	#if area.name == "Baddie01":
 	area.die()
-	pass # Replace with function body.
+	queue_free()
+	#pass # Replace with function body.

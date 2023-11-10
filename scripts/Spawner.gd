@@ -18,7 +18,7 @@ func _process(delta):
 	else:
 		#print("")
 		var instance = baddie01_scene.instantiate()
-		instance.position = Vector2(randi_range(64, 512),randi_range(64, 256))
+		instance.position = Vector2(randi_range(-170, 760),randi_range(-64, 364))
 		#instance.PlayerNodePath = get_node("Player")
 		owner.add_child(instance)
 		timer = 1.0

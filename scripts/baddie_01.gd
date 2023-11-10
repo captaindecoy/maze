@@ -2,14 +2,16 @@ extends Area2D
 
 @export var PlayerNodePath : NodePath
 @export var speed: int = 60
-var player
+@onready var player = $"../Player"
+var score
 var state : int
 var timer: float = 1.0
 
 enum states {SPAWNING, CHASING}
 
 func _ready():
-	player = $"../Player"
+	#player = $"../Player"
+	score = $"../Label"
 	state = states.SPAWNING
 	$Sprite2D.visible = false
 	$CollisionShape2D.disabled = true
@@ -37,6 +39,7 @@ func _physics_process(delta):
 				position += transform.x * speed * delta
 
 func die():
+	score.text = "10"
 	queue_free()
 
 
