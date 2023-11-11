@@ -12,8 +12,8 @@ func _process(delta):
 
 func _on_body_entered(body):
 	#print(body.name)
-	if body.name == "Baddie01":
-		body.die()
+	#if body.name == "Baddie01":
+	#	body.die()
 	queue_free()
 
 

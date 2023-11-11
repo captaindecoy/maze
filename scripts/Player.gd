@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 200
+@export var speed = 250
 @export var friction = 0.01
 @export var acceleration = 0.1
 var fire_rate = 10
