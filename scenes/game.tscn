@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cl5cf0f1tn2v4"]
+[gd_scene load_steps=7 format=3 uid="uid://cl5cf0f1tn2v4"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_dwrw0"]
 [ext_resource type="PackedScene" uid="uid://dt7uhhsb2g1xw" path="res://scenes/player.tscn" id="2_kjlow"]
 [ext_resource type="Texture2D" uid="uid://dl47dhtsvaa6c" path="res://art/black_pixel.png" id="4_4s14d"]
+[ext_resource type="Script" path="res://scripts/camera2D.gd" id="5_cg1sd"]
 [ext_resource type="Script" path="res://scripts/spawner.gd" id="5_v8ohd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i68bs"]
@@ -74,8 +75,9 @@ script = ExtResource("5_v8ohd")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(288, 160)
+script = ExtResource("5_cg1sd")
 
-[node name="Label" type="Label" parent="."]
+[node name="ScoreLabel" type="Label" parent="."]
 offset_left = 256.0
 offset_top = -200.0
 offset_right = 316.0

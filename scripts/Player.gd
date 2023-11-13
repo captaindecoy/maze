@@ -20,12 +20,6 @@ func get_input():
 		input.y -= 1
 	if Input.is_action_pressed('restart'):
 		get_tree().reload_current_scene()
-	if Input.is_action_just_pressed('toggle_fullscreen'):
-		var mode = DisplayServer.window_get_mode()
-		if mode == DisplayServer.WINDOW_MODE_WINDOWED:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-		else:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	return input
 
 func _physics_process(delta):
