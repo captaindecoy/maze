@@ -5,7 +5,7 @@ extends CharacterBody2D
 @export var acceleration = 0.1
 var fire_rate = 10
 var fire_rate_timer = 0
-
+position
 var bullet_scene = preload("res://scenes/bullet.tscn")
 var shot_sound = preload("res://sounds/default_laser_shoot.wav")
 
@@ -35,14 +35,16 @@ func _physics_process(delta):
 	if rs_look.length() >= deadzone:
 		rotation = rs_look.angle()
 		if fire_rate_timer == 0:
-			$AudioStreamPlayer.stream = shot_sound
-			$AudioStreamPlayer.play()
-			var instance = bullet_scene.instantiate()
-			if owner:
-				owner.add_child(instance)
+			fire_gun(1)
+			
+			#$AudioStreamPlayer.stream = shot_sound
+			#$AudioStreamPlayer.play()
+			#var instance = bullet_scene.instantiate()
+			#if owner:
+			#	owner.add_child(instance)
 			#add_child(instance)
-			instance.transform = transform
-			fire_rate_timer = fire_rate
+			#instance.transform = transform
+			#fire_rate_timer = fire_rate
 			
 	# Left stick moving
 	var direction = get_input()
@@ -55,8 +57,32 @@ func _physics_process(delta):
 	
 func die():
 	get_tree().reload_current_scene()
-	#var restart_event = InputEventAction.new()
-	#restart_event.action = "restart"
-	#restart_event.pressed = true
-	#Input.parse_input_event(restart_event)
-	#queue_free()
+
+func fire_gun(fire_mode: int):
+	$AudioStreamPlayer.stream = shot_sound
+	$AudioStreamPlayer.play()
+	match (fire_mode):
+		0:
+			var instance = bullet_scene.instantiate()
+			if owner:
+				owner.add_child(instance)
+			#add_child(instance)
+			instance.transform = transform
+			fire_rate_timer = fire_rate
+		1:
+			var instance = bullet_scene.instantiate()
+			if owner:
+				owner.add_child(instance)
+			#add_child(instance)
+			instance.transform = transform
+			instance.position.y -= 12
+			fire_rate_timer = fire_rate
+			
+			var instance2 = bullet_scene.instantiate()
+			if owner:
+				owner.add_child(instance2)
+			#add_child(instance)
+			instance2.transform = transform
+			instance2.position.y += 12
+			fire_rate_timer = fire_rate
+	
