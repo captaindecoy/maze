@@ -34,3 +34,5 @@ sprite_frames = SubResource("SpriteFrames_fpwnl")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 enabled = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

@@ -7,6 +7,7 @@ var fire_rate = 10
 var fire_rate_timer = 0
 
 var bullet_scene = preload("res://scenes/bullet.tscn")
+var shot_sound = preload("res://sounds/default_laser_shoot.wav")
 
 func get_input():
 	var input = Vector2()
@@ -34,6 +35,8 @@ func _physics_process(delta):
 	if rs_look.length() >= deadzone:
 		rotation = rs_look.angle()
 		if fire_rate_timer == 0:
+			$AudioStreamPlayer.stream = shot_sound
+			$AudioStreamPlayer.play()
 			var instance = bullet_scene.instantiate()
 			if owner:
 				owner.add_child(instance)
