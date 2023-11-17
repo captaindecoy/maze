@@ -12,6 +12,9 @@ func _ready():
 	starting_position = position
 	pass # Replace with function body.
 
+#func _unhandled_input(event):
+#	print(event.as_text())
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position = starting_position
