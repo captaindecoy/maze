@@ -5,7 +5,8 @@ extends CharacterBody2D
 @export var acceleration = 0.1
 var fire_rate = 10
 var fire_rate_timer = 0
-position
+
+
 var bullet_scene = preload("res://scenes/bullet.tscn")
 var shot_sound = preload("res://sounds/default_laser_shoot.wav")
 
@@ -75,7 +76,9 @@ func fire_gun(fire_mode: int):
 				owner.add_child(instance)
 			#add_child(instance)
 			instance.transform = transform
-			instance.position.y -= 12
+#			var move_xy = Vector2(cos(rotation + PI/2), sin(rotation + PI/2)) * 12
+			var move_xy = Vector2(1,0).rotated(rotation + PI/2) * 12
+			instance.position += move_xy
 			fire_rate_timer = fire_rate
 			
 			var instance2 = bullet_scene.instantiate()
@@ -83,6 +86,6 @@ func fire_gun(fire_mode: int):
 				owner.add_child(instance2)
 			#add_child(instance)
 			instance2.transform = transform
-			instance2.position.y += 12
+			instance2.position -= move_xy
 			fire_rate_timer = fire_rate
 	
