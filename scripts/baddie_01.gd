@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var PlayerNodePath : NodePath
+#@export var PlayerNodePath : NodePath
 @export var speed: int = 100
 @onready var player = $"../Player"
 var state : int

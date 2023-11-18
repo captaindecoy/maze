@@ -5,6 +5,7 @@ var timer: float = 1.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#print(get_parent().name)
 	pass # Replace with function body.
 
 
@@ -21,7 +22,8 @@ func _process(delta):
 		var instance = baddie01_scene.instantiate()
 		instance.position = Vector2(randi_range(-170, 760),randi_range(-64, 364))
 		#instance.PlayerNodePath = get_node("Player")
-		owner.add_child(instance)
+		get_parent().add_child(instance)
+		#add_child(instance)
 		instance.died.connect(owner._on_baddie01_died)
 		timer = 1.0
 	pass
