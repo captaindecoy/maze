@@ -2,6 +2,7 @@ extends Node2D
 
 class_name Game
 
+var test_scene = preload("res://scenes/title_screen.tscn")
 var score : int = 0
 #var shake : float = 0
 #var starting_position : Vector2
@@ -10,7 +11,9 @@ var score : int = 0
 func _ready():
 	$ScoreLabel.text = "SCORE: " + str(score)
 #	starting_position = position
-	pass # Replace with function body.
+	#pass # Replace with function body.
+	var instance = test_scene.instantiate()
+	add_child(instance)
 
 #func _unhandled_input(event):
 #	print(event.as_text())
@@ -18,6 +21,11 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 #	position = starting_position
+#	if Input.is_action_just_pressed("move_right"):
+#		var instance2 = test_scene.instantiate()
+#		#if owner:
+#		add_child(instance2)
+#		pass
 	if Input.is_action_just_pressed("pause"):
 		get_tree().paused = !(get_tree().paused)
 	if Input.is_action_just_pressed('toggle_fullscreen'):

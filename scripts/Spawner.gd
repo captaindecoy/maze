@@ -22,8 +22,9 @@ func _process(delta):
 		var instance = baddie01_scene.instantiate()
 		instance.position = Vector2(randi_range(-170, 760),randi_range(-64, 364))
 		#instance.PlayerNodePath = get_node("Player")
-		get_parent().add_child(instance)
+		owner.add_child(instance)
 		#add_child(instance)
-		instance.died.connect(owner._on_baddie01_died)
+		#print(owner)
+		instance.died.connect(owner.get_parent()._on_baddie01_died)
 		timer = 1.0
 	pass

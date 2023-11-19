@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://ds4xu6d60unpy"]
+
+[ext_resource type="Script" path="res://scripts/play_button.gd" id="1_74ton"]
+
+[node name="TitleScreen" type="Node2D"]
+
+[node name="PlayButton" type="Button" parent="."]
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 87.0
+offset_bottom = 71.0
+text = "PLAY"
+script = ExtResource("1_74ton")
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "TITLE"

@@ -1,0 +1,70 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7xva1stgpoy6"]
+
+[ext_resource type="PackedScene" uid="uid://dt7uhhsb2g1xw" path="res://scenes/player.tscn" id="1_xsh67"]
+[ext_resource type="Script" path="res://scripts/spawner.gd" id="2_1vmmg"]
+[ext_resource type="Texture2D" uid="uid://dl47dhtsvaa6c" path="res://art/black_pixel.png" id="3_30moj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i68bs"]
+size = Vector2(40, 16)
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_xsh67")]
+
+[node name="Spawner" type="Node2D" parent="."]
+process_mode = 1
+script = ExtResource("2_1vmmg")
+
+[node name="Walls" type="Node" parent="."]
+
+[node name="NorthWall" type="StaticBody2D" parent="Walls"]
+position = Vector2(288, -144)
+scale = Vector2(28, 2)
+collision_layer = 3
+metadata/_edit_group_ = true
+
+[node name="WhitePixelpng" type="Sprite2D" parent="Walls/NorthWall"]
+scale = Vector2(40, 16)
+texture = ExtResource("3_30moj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/NorthWall"]
+shape = SubResource("RectangleShape2D_i68bs")
+
+[node name="WestWall" type="StaticBody2D" parent="Walls"]
+position = Vector2(-252, 160)
+scale = Vector2(1, 38)
+collision_layer = 3
+metadata/_edit_group_ = true
+
+[node name="WhitePixelpng" type="Sprite2D" parent="Walls/WestWall"]
+scale = Vector2(40, 16)
+texture = ExtResource("3_30moj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/WestWall"]
+shape = SubResource("RectangleShape2D_i68bs")
+
+[node name="EastWall" type="StaticBody2D" parent="Walls"]
+position = Vector2(828, 160)
+scale = Vector2(1, 38)
+collision_layer = 3
+metadata/_edit_group_ = true
+
+[node name="WhitePixelpng" type="Sprite2D" parent="Walls/EastWall"]
+scale = Vector2(40, 16)
+texture = ExtResource("3_30moj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/EastWall"]
+shape = SubResource("RectangleShape2D_i68bs")
+
+[node name="SouthWall" type="StaticBody2D" parent="Walls"]
+position = Vector2(288, 464)
+scale = Vector2(28, 2)
+collision_layer = 3
+metadata/_edit_group_ = true
+
+[node name="WhitePixelpng" type="Sprite2D" parent="Walls/SouthWall"]
+scale = Vector2(40, 16)
+texture = ExtResource("3_30moj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/SouthWall"]
+shape = SubResource("RectangleShape2D_i68bs")
