@@ -4,15 +4,36 @@
 
 [node name="TitleScreen" type="Node2D"]
 
-[node name="PlayButton" type="Button" parent="."]
-offset_left = 40.0
-offset_top = 40.0
-offset_right = 87.0
-offset_bottom = 71.0
+[node name="HBoxContainer" type="VBoxContainer" parent="."]
+layout_direction = 2
+offset_top = -8.0
+offset_right = 216.0
+offset_bottom = 31.0
+scale = Vector2(1.8, 1.7)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "ONSLAUGHT
+"
+vertical_alignment = 1
+
+[node name="PlayButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
 text = "PLAY"
 script = ExtResource("1_74ton")
+metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "TITLE"
+[node name="Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Button1"
+
+[node name="Button2" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Button2"

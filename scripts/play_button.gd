@@ -12,8 +12,10 @@ func _process(delta):
 		_button_pressed()
 
 func _button_pressed():
-	#print(get_tree().get_root().name)
+	#print(get_node("/root/Game").name)
+	#print($"root/Game".name)
 	var instance2 = test_scene.instantiate()
-	$"../..".add_child(instance2)
-	get_parent().queue_free()
+	#$"../..".add_child(instance2)
+	get_node("/root/Game").add_child(instance2)
+	get_node("/root/Game/TitleScreen").queue_free()
 	#queue_free()

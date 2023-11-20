@@ -25,6 +25,6 @@ func _process(delta):
 		owner.add_child(instance)
 		#add_child(instance)
 		#print(owner)
-		instance.died.connect(owner.get_parent()._on_baddie01_died)
+		instance.died.connect(get_node("/root/Game")._on_baddie01_died)
 		timer = 1.0
 	pass
