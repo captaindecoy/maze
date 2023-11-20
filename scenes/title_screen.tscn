@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://ds4xu6d60unpy"]
+[gd_scene load_steps=3 format=3 uid="uid://ds4xu6d60unpy"]
 
 [ext_resource type="Script" path="res://scripts/play_button.gd" id="1_74ton"]
+[ext_resource type="Script" path="res://scripts/exit_button.gd" id="2_d58uf"]
 
 [node name="TitleScreen" type="Node2D"]
 
@@ -24,7 +25,7 @@ vertical_alignment = 1
 [node name="PlayButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "PLAY"
+text = "Play"
 script = ExtResource("1_74ton")
 metadata/_edit_use_anchors_ = true
 
@@ -33,7 +34,8 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Button1"
 
-[node name="Button2" type="Button" parent="HBoxContainer"]
+[node name="ExitButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "Button2"
+text = "Exit"
+script = ExtResource("2_d58uf")
