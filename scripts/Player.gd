@@ -5,6 +5,7 @@ extends CharacterBody2D
 @export var acceleration = 0.1
 var fire_rate = 10
 var fire_rate_timer = 0
+var fire_mode = 0
 
 
 var bullet_scene = preload("res://scenes/bullet.tscn")
@@ -36,7 +37,7 @@ func _physics_process(delta):
 	if rs_look.length() >= deadzone:
 		rotation = rs_look.angle()
 		if fire_rate_timer == 0:
-			fire_gun(1)
+			fire_gun()
 			
 			#$AudioStreamPlayer.stream = shot_sound
 			#$AudioStreamPlayer.play()
@@ -59,7 +60,7 @@ func _physics_process(delta):
 func die():
 	get_tree().reload_current_scene()
 
-func fire_gun(fire_mode: int):
+func fire_gun():
 	$AudioStreamPlayer.stream = shot_sound
 	$AudioStreamPlayer.play()
 	match (fire_mode):

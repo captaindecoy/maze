@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://0wnnpmx6ky6m"]
+
+[ext_resource type="Script" path="res://scripts/test_scene.gd" id="1_sqbke"]
+[ext_resource type="PackedScene" uid="uid://dt7uhhsb2g1xw" path="res://scenes/player.tscn" id="1_vskrc"]
+[ext_resource type="PackedScene" uid="uid://ctqupwsd03343" path="res://scenes/spread_power_up.tscn" id="2_1cqgo"]
+
+[node name="TestScene" type="Node2D"]
+script = ExtResource("1_sqbke")
+
+[node name="Player" parent="." instance=ExtResource("1_vskrc")]
+position = Vector2(639, 361)
+
+[node name="GunPowerUp" parent="." instance=ExtResource("2_1cqgo")]
+position = Vector2(413, 299)
+
+[node name="GunPowerUp2" parent="." instance=ExtResource("2_1cqgo")]
+position = Vector2(372, 474)
+powerup_type = 1
