@@ -6,6 +6,8 @@ extends CharacterBody2D
 var fire_rate = 10
 var fire_rate_timer = 0
 var fire_mode = 0
+var power_up_rate = 3
+var power_up_timer = -1
 
 
 var bullet_scene = preload("res://scenes/bullet.tscn")
@@ -28,7 +30,14 @@ func get_input():
 func _physics_process(delta):
 	if fire_rate_timer > 0:
 		fire_rate_timer -= 1
-		
+	
+	if power_up_timer > 0:
+		power_up_timer -= delta
+		print(power_up_timer)
+	elif power_up_timer < 0 and power_up_timer != -1:
+		fire_mode = 0
+		power_up_timer = -1
+	
 	# Right stick aiming and firing
 	var rs_look : Vector2 = Vector2(0,0)
 	var deadzone = 0.3

@@ -29,6 +29,7 @@ func _on_area_2d_body_entered(body):
 	print(body.name)
 	#body.fire_mode = 1
 	body.fire_mode = power_up_type
+	body.power_up_timer = body.power_up_rate
 #	match(power_up_type):
 #		PowerUpType.SPREAD:
 #			body.fire_mode = 1
