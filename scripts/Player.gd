@@ -89,4 +89,25 @@ func fire_gun():
 			instance2.transform = transform
 			instance2.position -= move_xy
 			fire_rate_timer = fire_rate
+			
+		2:
+			var instance = bullet_scene.instantiate()
+			if owner:
+				owner.add_child(instance)
+			#add_child(instance)
+			instance.transform = transform
+#			var move_xy = Vector2(cos(rotation + PI/2), sin(rotation + PI/2)) * 12
+			var move_xy = Vector2(1,0).rotated(rotation + PI/2) * 12
+			instance.rotation += PI/8
+			instance.position += move_xy
+			fire_rate_timer = fire_rate
+			
+			var instance2 = bullet_scene.instantiate()
+			if owner:
+				owner.add_child(instance2)
+			#add_child(instance)
+			instance2.transform = transform
+			instance2.rotation -= PI/8
+			instance2.position -= move_xy
+			fire_rate_timer = fire_rate
 	

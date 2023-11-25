@@ -11,8 +11,9 @@ script = ExtResource("1_sqbke")
 position = Vector2(639, 361)
 
 [node name="GunPowerUp" parent="." instance=ExtResource("2_1cqgo")]
-position = Vector2(413, 299)
+position = Vector2(526, 299)
+power_up_type = 1
 
 [node name="GunPowerUp2" parent="." instance=ExtResource("2_1cqgo")]
-position = Vector2(372, 474)
-powerup_type = 1
+position = Vector2(526, 419)
+power_up_type = 2

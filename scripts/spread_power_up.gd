@@ -3,13 +3,13 @@ extends Node2D
 var font = load('res://fonts/PrStart.ttf')
 var radius : int = 20
 var type : String
-enum PowerUpType {SPREAD, POWER, EXPLOSIVE}
-@export var powerup_type: PowerUpType
+enum PowerUpType {NONE, SPREAD, POWER, EXPLOSIVE}
+@export var power_up_type: PowerUpType
 #@export_enum("Spread", "Power") var powerup_type : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	match(powerup_type):
+	match(power_up_type):
 		PowerUpType.SPREAD:
 			type = 'S'
 		PowerUpType.POWER:
@@ -27,5 +27,11 @@ func _draw():
 
 func _on_area_2d_body_entered(body):
 	print(body.name)
-	body.fire_mode = 1
+	#body.fire_mode = 1
+	body.fire_mode = power_up_type
+#	match(power_up_type):
+#		PowerUpType.SPREAD:
+#			body.fire_mode = 1
+#		PowerUpType.POWER:
+#			body.fire_mode = 2
 	pass # Replace with function body.
