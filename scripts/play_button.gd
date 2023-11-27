@@ -1,6 +1,6 @@
 extends Button
 
-var test_scene = preload("res://scenes/test_level.tscn")
+var test_scene = preload("res://scenes/level_1.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
