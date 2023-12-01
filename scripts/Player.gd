@@ -55,15 +55,6 @@ func _physics_process(delta):
 		if fire_rate_timer == 0:
 			fire_gun()
 			
-			#$AudioStreamPlayer.stream = shot_sound
-			#$AudioStreamPlayer.play()
-			#var instance = bullet_scene.instantiate()
-			#if owner:
-			#	owner.add_child(instance)
-			#add_child(instance)
-			#instance.transform = transform
-			#fire_rate_timer = fire_rate
-			
 	# Left stick moving
 	var direction = get_input()
 	if direction.length() > 0:
@@ -81,88 +72,41 @@ func fire_gun():
 	$AudioStreamPlayer.play()
 	match (current_fire_mode):
 		fire_modes.NORMAL:
-			var instance = bullet_scene.instantiate()
-			if owner:
-				owner.add_child(instance)
-			#add_child(instance)
-			instance.transform = transform
-			fire_rate_timer = fire_rate
+			create_bullet(Vector2.ZERO, 0)
 			
 		fire_modes.DOUBLE:
-			var instance = bullet_scene.instantiate()
-			if owner:
-				owner.add_child(instance)
-			#add_child(instance)
-			instance.transform = transform
-#			var move_xy = Vector2(cos(rotation + PI/2), sin(rotation + PI/2)) * 12
-			var move_xy = Vector2(1,0).rotated(rotation + PI/2) * 12
-			instance.position += move_xy
-			fire_rate_timer = fire_rate
-			
-			var instance2 = bullet_scene.instantiate()
-			if owner:
-				owner.add_child(instance2)
-			#add_child(instance)
-			instance2.transform = transform
-			instance2.position -= move_xy
-			fire_rate_timer = fire_rate
+			create_bullet(Vector2(1,0).rotated(rotation + PI/2), 0)
+			create_bullet(Vector2(-1,0).rotated(rotation + PI/2), 0)
 			
 		fire_modes.SPREAD:
 			if spread_level == 1:
-				var instance = bullet_scene.instantiate()
-				if owner:
-					owner.add_child(instance)
-				#add_child(instance)
-				instance.transform = transform
-	#			var move_xy = Vector2(cos(rotation + PI/2), sin(rotation + PI/2)) * 12
-				var move_xy = Vector2(1,0).rotated(rotation + PI/2) * 12
-				instance.rotation += PI/8
-				instance.position += move_xy
-				fire_rate_timer = fire_rate
-				
-				var instance2 = bullet_scene.instantiate()
-				if owner:
-					owner.add_child(instance2)
-				#add_child(instance)
-				instance2.transform = transform
-				instance2.rotation -= PI/8
-				instance2.position -= move_xy
-				fire_rate_timer = fire_rate
+				create_bullet(Vector2(1,0).rotated(rotation + PI/2), PI/8)
+				create_bullet(Vector2(-1,0).rotated(rotation + PI/2), -PI/8)
 		
 			if spread_level == 2:
-				var instance = bullet_scene.instantiate()
-				if owner:
-					owner.add_child(instance)
-				#add_child(instance)
-				instance.transform = transform
-	#			var move_xy = Vector2(cos(rotation + PI/2), sin(rotation + PI/2)) * 12
-				var move_xy = Vector2(1,0).rotated(rotation + PI/2) * 12
-				instance.rotation += PI/8
-				instance.position += move_xy
-				fire_rate_timer = fire_rate
-				
-				var instance2 = bullet_scene.instantiate()
-				if owner:
-					owner.add_child(instance2)
-				#add_child(instance)
-				instance2.transform = transform
-				instance2.rotation -= PI/8
-				instance2.position -= move_xy
-				fire_rate_timer = fire_rate
-				
-				var instance3 = bullet_scene.instantiate()
-				if owner:
-					owner.add_child(instance3)
-				#add_child(instance)
-				instance3.transform = transform
-				fire_rate_timer = fire_rate
-	
+				create_bullet(Vector2.ZERO, 0)
+				create_bullet(Vector2(1,0).rotated(rotation + PI/2), PI/8)
+				create_bullet(Vector2(-1,0).rotated(rotation + PI/2), -PI/8)
+			
 func set_current_fire_mode(type : String):
 	match(type):
 		"S":
 			if spread_level < 3:
 				spread_level += 1
 				current_fire_mode = fire_modes.SPREAD
+		"D":
+			current_fire_mode = fire_modes.DOUBLE
 			
 	#current_fire_mode = power_up_type
 	power_up_timer = power_up_rate
+
+func create_bullet(bullet_position : Vector2, bullet_rotation : float):
+	var instance = bullet_scene.instantiate()
+	if owner:
+		owner.add_child(instance)
+	#add_child(instance)
+	instance.transform = transform
+	var move_xy = bullet_position * 12
+	instance.position += move_xy
+	instance.rotation += bullet_rotation
+	fire_rate_timer = fire_rate
