@@ -102,11 +102,14 @@ func set_current_fire_mode(type : String):
 
 func create_bullet(bullet_position : Vector2, bullet_rotation : float):
 	var instance = bullet_scene.instantiate()
-	if owner:
-		owner.add_child(instance)
+	#print(str(get_tree().root.name))
+	#if owner:
+	#	owner.add_child(instance)
+#	get_tree().root.add_child(instance)
 	#add_child(instance)
 	instance.transform = transform
 	var move_xy = bullet_position * 12
 	instance.position += move_xy
 	instance.rotation += bullet_rotation
+	get_tree().root.add_child(instance)
 	fire_rate_timer = fire_rate

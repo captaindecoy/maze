@@ -40,6 +40,7 @@ func _physics_process(delta):
 
 func die():
 	#score.text = "10"
+	print("vs code!")
 	died.emit()
 	queue_free()
 

@@ -20,6 +20,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	$FpsLabel.text = str(Engine.get_frames_per_second())
 #	position = starting_position
 #	if Input.is_action_just_pressed("move_right"):
 #		var instance2 = test_scene.instantiate()
@@ -43,7 +44,7 @@ func _process(delta):
 #		shake = 0;
 		#position = starting_position
 	#pass
-
+	print("vs code game22!")
 func _on_baddie01_died():
 	#print("signal captured!")
 	score += 10
