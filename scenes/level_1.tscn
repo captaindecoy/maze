@@ -68,3 +68,10 @@ texture = ExtResource("3_idi3e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/SouthWall"]
 shape = SubResource("RectangleShape2D_i68bs")
+
+[node name="LevelTime" type="Label" parent="."]
+offset_left = -336.0
+offset_top = -192.0
+offset_right = -296.0
+offset_bottom = -166.0
+text = "00"

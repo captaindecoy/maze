@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://ctqupwsd03343"]
 
-[ext_resource type="Script" path="res://scripts/spread_power_up.gd" id="1_f8ppg"]
+[ext_resource type="Script" path="res://scripts/power_up.gd" id="1_n886w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_848od"]
 radius = 20.0
 
-[node name="GunPowerUp" type="Node2D"]
+[node name="PowerUp" type="Node2D"]
 position = Vector2(29, 37)
-script = ExtResource("1_f8ppg")
+script = ExtResource("1_n886w")
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 2

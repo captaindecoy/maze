@@ -1,6 +1,6 @@
 extends Node2D
 
-var powerup_scene = preload("res://scenes/spread_power_up.tscn")
+var powerup_scene = preload("res://scenes/power_up.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

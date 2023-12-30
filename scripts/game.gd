@@ -44,7 +44,7 @@ func _process(delta):
 #		shake = 0;
 		#position = starting_position
 	#pass
-	print("vs code game22!")
+	#print("vs code game22!")
 func _on_baddie01_died():
 	#print("signal captured!")
 	score += 10
