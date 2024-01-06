@@ -9,7 +9,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Input.is_action_pressed('b_button'):
+		_button_pressed()
 
 func _button_pressed():
 	#print(get_node("/root/Game").name)

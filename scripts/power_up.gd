@@ -20,7 +20,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#print($Area2D/CollisionShape2D.shape.radius)
-	print("Power-up type: " + type)
+	#print("Power-up type: " + type)
 	queue_redraw()
 	pass
 	
@@ -29,7 +29,7 @@ func _draw():
 	draw_char(font, Vector2(-8, 8), type, 20, Color.RED) #Magic numbers!
 
 func _on_area_2d_body_entered(body : Player):
-	print(body.name)
+	#print(body.name)
 	body.set_current_fire_mode(type)
 	queue_free()
 

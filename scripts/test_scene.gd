@@ -17,6 +17,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$ProgressBar.value = $Player.power_up_timer
-	$Label.text = "LVL " + str($Player.spread_level)
+	$PowerUpMeter.value = $Player.power_up_timer
+	$PowerUpLevel.text = "LVL " + str($Player.spread_level)
 	pass

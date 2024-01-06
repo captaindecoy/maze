@@ -6,7 +6,7 @@ class_name Player extends CharacterBody2D
 var fire_rate = 10
 var fire_rate_timer = 0
 var current_fire_mode = 0
-var power_up_rate = 3
+var power_up_rate = 6 #was 3, seemed too short
 var power_up_timer = -1
 
 var spread_level = 0
@@ -34,6 +34,9 @@ func get_input():
 	return input
 
 func _physics_process(delta):
+	$"../PowerUpLevel".text = "LVL " + str(spread_level)
+	$"../PowerUpMeter".value = power_up_timer
+	
 	if fire_rate_timer > 0:
 		fire_rate_timer -= 1
 	

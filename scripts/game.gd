@@ -20,7 +20,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	$FpsLabel.text = str(Engine.get_frames_per_second())
+	$FpsLabel.text = str("FPS: " + str(Engine.get_frames_per_second()))
 #	position = starting_position
 #	if Input.is_action_just_pressed("move_right"):
 #		var instance2 = test_scene.instantiate()
@@ -29,7 +29,7 @@ func _process(delta):
 #		pass
 	if Input.is_action_just_pressed("pause"):
 		get_tree().paused = !(get_tree().paused)
-	if Input.is_action_just_pressed('toggle_fullscreen'):
+	if Input.is_action_just_pressed('toggle_fullscreen') or Input.is_action_just_pressed('ui_select'):
 		var mode = DisplayServer.window_get_mode()
 		if mode == DisplayServer.WINDOW_MODE_WINDOWED:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)

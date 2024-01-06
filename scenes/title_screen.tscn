@@ -24,7 +24,7 @@ vertical_alignment = 1
 [node name="PlayButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "Play"
+text = "Play (A)"
 script = ExtResource("1_74ton")
 metadata/_edit_use_anchors_ = true
 
@@ -36,5 +36,5 @@ text = "Button1"
 [node name="ExitButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "Exit"
+text = "Exit (B)"
 script = ExtResource("2_d58uf")

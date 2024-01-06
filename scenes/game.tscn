@@ -19,5 +19,8 @@ offset_right = 316.0
 offset_bottom = -174.0
 
 [node name="FpsLabel" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = -344.0
+offset_top = -168.0
+offset_right = -291.0
+offset_bottom = -142.0
+text = "FPS:##"
