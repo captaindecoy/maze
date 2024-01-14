@@ -16,6 +16,7 @@ bg_color = Color(1, 0, 0, 1)
 [node name="Level1" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_5fs2f")]
+speed = 220
 
 [node name="Spawner" type="Node2D" parent="."]
 process_mode = 1

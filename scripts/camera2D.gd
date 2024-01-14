@@ -11,6 +11,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	print(position)
 	position = starting_position
 	position.x += randf_range(-shake, shake)
 	position.y += randf_range(-shake, shake)

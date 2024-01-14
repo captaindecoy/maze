@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody2D
 
-@export var speed = 250
+@export var speed = 300
 @export var friction = 0.01
 @export var acceleration = 0.1
 var fire_rate = 10
@@ -10,6 +10,7 @@ var power_up_rate = 6 #was 3, seemed too short
 var power_up_timer = -1
 
 var spread_level = 0
+var power_up_level = 0
 
 enum fire_modes {
 	NORMAL, 
@@ -34,7 +35,7 @@ func get_input():
 	return input
 
 func _physics_process(delta):
-	$"../PowerUpLevel".text = "LVL " + str(spread_level)
+	$"../PowerUpLevel".text = "LVL " + str(power_up_level)
 	$"../PowerUpMeter".value = power_up_timer
 	
 	if fire_rate_timer > 0:
@@ -42,10 +43,10 @@ func _physics_process(delta):
 	
 	if power_up_timer > 0:
 		power_up_timer -= delta
-		print(power_up_timer)
+		#print(power_up_timer)
 	elif power_up_timer < 0 and power_up_timer != -1:
 		current_fire_mode = fire_modes.NORMAL
-		spread_level = 0
+		power_up_level = 0
 		power_up_timer = -1
 	
 	# Right stick aiming and firing
@@ -78,27 +79,51 @@ func fire_gun():
 			create_bullet(Vector2.ZERO, 0)
 			
 		fire_modes.DOUBLE:
-			create_bullet(Vector2(1,0).rotated(rotation + PI/2), 0)
-			create_bullet(Vector2(-1,0).rotated(rotation + PI/2), 0)
+			if power_up_level == 1:
+				create_bullet(Vector2(1,0).rotated(rotation + PI/2), 0)
+				create_bullet(Vector2(-1,0).rotated(rotation + PI/2), 0)
+			if power_up_level == 2:
+				#create_bullet(Vector2(1,0).rotated(rotation + PI/2), 0)
+				#create_bullet(Vector2(-1,0).rotated(rotation + PI/2), 0)
+				create_bullet(Vector2.ZERO, 0)
+				create_bullet(Vector2(2,0).rotated(rotation + PI/2), 0) # was 3 when there is 4 bullets
+				create_bullet(Vector2(-2,0).rotated(rotation + PI/2), 0)
+			if power_up_level == 3:
+				create_bullet(Vector2(1,0).rotated(rotation + PI/2), 0)
+				create_bullet(Vector2(-1,0).rotated(rotation + PI/2), 0)
+				create_bullet(Vector2(3,0).rotated(rotation + PI/2), 0) # was 3 when there is 4 bullets
+				create_bullet(Vector2(-3,0).rotated(rotation + PI/2), 0)
 			
 		fire_modes.SPREAD:
-			if spread_level == 1:
-				create_bullet(Vector2(1,0).rotated(rotation + PI/2), PI/8)
-				create_bullet(Vector2(-1,0).rotated(rotation + PI/2), -PI/8)
+			if power_up_level == 1:
+				create_bullet(Vector2.ZERO, PI/24)
+				create_bullet(Vector2.ZERO, -PI/24)
 		
-			if spread_level == 2:
+			if power_up_level == 2:
 				create_bullet(Vector2.ZERO, 0)
+				create_bullet(Vector2(1,0).rotated(rotation + PI/2), PI/16)
+				create_bullet(Vector2(-1,0).rotated(rotation + PI/2), -PI/16)
+			
+			if power_up_level == 3:
+				create_bullet(Vector2.ZERO, PI/24)
+				create_bullet(Vector2.ZERO, -PI/24)
 				create_bullet(Vector2(1,0).rotated(rotation + PI/2), PI/8)
 				create_bullet(Vector2(-1,0).rotated(rotation + PI/2), -PI/8)
 			
 func set_current_fire_mode(type : String):
 	match(type):
 		"S":
-			if spread_level < 3:
-				spread_level += 1
+			if current_fire_mode != fire_modes.SPREAD:
+				power_up_level = 0
+			if power_up_level < 3:
+				power_up_level += 1
 				current_fire_mode = fire_modes.SPREAD
 		"D":
-			current_fire_mode = fire_modes.DOUBLE
+			if current_fire_mode != fire_modes.DOUBLE:
+				power_up_level = 0
+			if power_up_level < 3:
+				power_up_level += 1
+				current_fire_mode = fire_modes.DOUBLE
 			
 	#current_fire_mode = power_up_type
 	power_up_timer = power_up_rate
